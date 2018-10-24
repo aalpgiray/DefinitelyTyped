@@ -98,6 +98,11 @@ declare module 'leaflet' {
             addWaypoints?: boolean;
         }
 
+        class Mapbox implements IRouter{
+            constructor(accessToken:string)
+            route(waypoints: Waypoint[], callback: (args?: any) => void, context?: {}, options?: RoutingOptions): void ;
+        }
+
         class OSRMv1 implements IRouter {
             constructor(options?: OSRMOptions);
 
@@ -248,6 +253,7 @@ declare module 'leaflet' {
         function plan(waypoints: Waypoint[] | LatLng[], options?: PlanOptions): Plan;
 
         function osrmv1(options?: OSRMOptions): OSRMv1;
+        function mapbox(mapboxAPIKey:string): Mapbox;
 
         function formatter(options?: FormatterOptions): Formatter;
 
